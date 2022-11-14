@@ -71,33 +71,64 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "The 10th Item",
+    category: "dinner",
+    price: 16.99,
+    img: "./images/item-10.jpeg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+  },
 ];
 
 const sectionCenter = document.querySelector(".section-center");
-const filterBtns = document.querySelectorAll(".filter-btn");
+const btnContainer = document.querySelector(".btn-container");
 
-window.addEventListener("DOMContentLoaded", displayMenuItems(menu));
-
-filterBtns.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    // console.log(e.currentTarget.dataset);
-    const category = e.currentTarget.dataset.id;
-    console.log(category);
-    if (category === "all") {
-      displayMenuItems(menu);
-      console.log(displayMenuItems(menu));
-    } else {
-      const menuCategory = menu.filter(function (menuItem) {
-        // console.log(menuItem.category);
-        if (menuItem.category === category) {
-          return menuItem;
-        }
-      });
-      // console.log(menuCategory);
-      displayMenuItems(menuCategory);
-    }
-  });
+window.addEventListener("DOMContentLoaded", function () {
+  displayMenuItems(menu);
+  displayMenuButtons();
 });
+
+function displayMenuButtons() {
+  const catList = menu.reduce(
+    (list, item) => {
+      if (!list.includes(item.category)) {
+        list.push(item.category);
+      }
+      return list;
+    },
+    ["all"]
+  );
+  // console.log(catList);
+
+  const displayButtons = catList.map((i) => {
+    return `<button class="filter-btn" data-id=${i} type="button">${i}</button>`;
+  });
+  // console.log(displayButtons);
+  btnContainer.innerHTML = displayButtons.join("");
+  const filterBtns = document.querySelectorAll(".filter-btn");
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      // console.log(e.currentTarget.dataset);
+      const category = e.currentTarget.dataset.id;
+      // console.log(category);
+      if (category === "all") {
+        displayMenuItems(menu);
+        // console.log(displayMenuItems(menu));
+      } else {
+        const menuCategory = menu.filter(function (menuItem) {
+          // console.log(menuItem.category);
+          if (menuItem.category === category) {
+            return menuItem;
+          }
+        });
+        // console.log(menuCategory);
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
+}
 
 function displayMenuItems(menuItems) {
   let displayMenu = menuItems.map((item) => {
