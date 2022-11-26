@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="title">
+        <h2>About</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+          sequi!
+        </p>
+      </div>
+      <div class="about-center section-center">
+        <article class="about-img">
+          <img src="./hero-bcg.jpeg" alt="About Picture" />
+        </article>
+        <article class="about">
+          <div class="btn-container">
+            <button class="tab-btn active" data-id="history">History</button>
+            <button class="tab-btn" data-id="vision">Vision</button>
+            <button class="tab-btn" data-id="goals">Goals</button>
+          </div>
+          <article class="about-content">
+            <div class="content active" id="history">
+              <h4>History</h4>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel
+                magnam, exercitationem delectus earum ex possimus a excepturi
+                officiis saepe quis!
+              </p>
+            </div>
+            <div class="content" id="vision">
+              <h4>Vision</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+                modi voluptatum exercitationem culpa facilis eveniet fugiat
+                distinctio! Suscipit tempore in quas quidem, vel alias ipsum.
+              </p>
+            </div>
+            <div class="content" id="goals">
+              <h4>Goals</h4>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
+              cumque nostrum maiores nulla placeat exercitationem?
+            </div>
+          </article>
+        </article>
+      </div>
+    </section>
+    <!-- javascript -->
+    <script src="app.js"></script>
+  </body>
+</html>
