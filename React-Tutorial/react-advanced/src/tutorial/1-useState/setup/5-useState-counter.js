@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 const UseStateCounter = () => {
   const [value, setValue] = useState(0);
+  // const a = 10;
+
+  // if (value != 0 && value > 0) {
+  //   document.title = `Value: ${value}`;
+  // }
   return (
     <>
       <section style={{ margin: "4rem 0" }}>
